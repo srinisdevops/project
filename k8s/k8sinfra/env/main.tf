@@ -94,5 +94,16 @@ provisioner "local-exec" {
 provisioner "local-exec" {
      command = "echo '${element(module.Ansiblehost.ansible_public_ip.*,1)}' >> hosts1"
  }
+   
+   provisioner "local-exec" {
+ command = "aws ec2 wait instance-status-ok --instance-ids '${element(module.Ansiblehost.ansible_instance_id.*,0)}' --region us-east-2"
+ }
+provisioner "local-exec" {
+ command = "aws ec2 wait instance-status-ok --instance-ids '${element(module.Ansiblehost.ansible_instance_id.*,1)}'"
+ }
+provisioner "local-exec" {
+ command = "aws ec2 wait instance-status-ok --instance-ids '${element(module.AnsibleMaster.ansible_instance_id.*,0)}'"
+ }
+   
 }
 
