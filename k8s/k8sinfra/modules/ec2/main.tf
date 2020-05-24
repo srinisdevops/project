@@ -24,16 +24,16 @@ resource "aws_instance" "cZServers" {
 
 # user_data = "${var.user_data}"
   
-  provisioner "file" {
-    source      = "/home/ubuntu/Keys/MyKeyPair1.pem"
-    destination = "/tmp/MyKeyPair1.pem"
-#    destination = "/home/ubuntu/Keys/MyKeyPair1.pem"
-  }
-  connection {
-    host     = "${self.public_ip}"
-    type     = "ssh"
-    user     = "ubuntu"
-    password = ""
-    private_key = "${file("/home/ubuntu/Keys/MyKeyPair1.pem")}"
-}
+#  provisioner "file" {
+#    source      = "/home/ubuntu/Keys/MyKeyPair.pem"
+#    destination = "/tmp/MyKeyPair.pem"
+#    destination = "/home/ubuntu/Keys/MyKeyPair.pem"
+# }
+#  connection {
+#    host     = "${self.public_ip}"
+#    type     = "ssh"
+#    user     = "ubuntu"
+#    password = ""
+#    private_key = "${file("/home/ubuntu/Keys/MyKeyPair.pem")}"
+#}
 }
