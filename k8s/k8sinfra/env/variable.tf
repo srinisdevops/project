@@ -18,7 +18,7 @@ variable "instance_type" {
   default = "t3.medium"
 }
 variable "key_name" {
-  default = "MyKeyPair1"
+  default = "MyKeyPair"
   description = "the ssh key to be used for the EC2 instance"
 }
 
