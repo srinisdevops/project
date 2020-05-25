@@ -96,13 +96,13 @@ provisioner "local-exec" {
  }
    
 provisioner "local-exec" {
- command = "aws ec2 wait instance-status-ok --instance-ids '${element(module.Ansiblehost.k8s_instance_id.*,0)}' --region us-east-2"
+ command = "aws ec2 wait instance-status-ok --instance-ids '${element(module.Ansiblehost.ansible_instance_id.*,0)}' --region us-east-2"
  }
 provisioner "local-exec" {
- command = "aws ec2 wait instance-status-ok --instance-ids '${element(module.Ansiblehost.k8s_instance_id.*,1)}'"
+ command = "aws ec2 wait instance-status-ok --instance-ids '${element(module.Ansiblehost.ansible_instance_id.*,1)}'"
  }
 provisioner "local-exec" {
- command = "aws ec2 wait instance-status-ok --instance-ids '${element(module.AnsibleMaster.k8s_instance_id.*,0)}'"
+ command = "aws ec2 wait instance-status-ok --instance-ids '${element(module.AnsibleMaster.ansible_instance_id.*,0)}'"
  }
    
 }
