@@ -6,7 +6,7 @@
     shell: while kubectl get nodes | grep -i "NotReady"; do sleep 5; done
     
   - name: Get Master Node Status
-    shell: while kubectl get nodes >> nodestatus.txt
+    shell: kubectl get nodes >> nodestatus.txt
     args:
       chdir: $HOME
       creates: nodestatus.txt
